@@ -1,0 +1,43 @@
+*{
+  box-sizing: border-box;
+}
+
+body{
+  background-color: #282c34;
+}
+
+.input {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input input {
+  margin: 3px;
+  font-size: 1em;
+  padding: 0;
+}
+
+.time-input {
+  width: 4em;
+}
+
+.App {
+  color: white;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.clock-number {
+  font-size: 4em;
+  font-family: monospace;
+}
+
+.cronometer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
