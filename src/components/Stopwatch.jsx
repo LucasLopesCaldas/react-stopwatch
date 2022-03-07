@@ -1,8 +1,9 @@
 import React from "react";
 import Clock from "./Clock";
+import DigitalClock from "./DigitalClock";
 import Input from "./Input";
 
-class Cronometer extends React.Component {
+class Stopwatch extends React.Component {
 
   constructor(){
     super();
@@ -77,11 +78,14 @@ class Cronometer extends React.Component {
     
     return (<div className="cronometer">
       <Input inputHour={inputHour} inputMin={inputMin} inputSec={inputSec} handleTimeInputChange={this.handleTimeInputChange}/>
+      <DigitalClock seconds={seconds}/>
       <Clock seconds={seconds}/>
-      <button type="button" onClick={this.startTimer}>{!running ? 'Start' : 'Restart'}</button>
-      <button type="button" disabled={!running} onClick={() => {clearInterval(timerId); this.reset()}}>Stop</button>
+      <div className="stopwatch-buttons">
+        <button type="button" onClick={this.startTimer}>{!running ? 'START' : 'RESTART'}</button>
+        <button type="button" disabled={!running} onClick={() => {clearInterval(timerId); this.reset()}}>STOP</button>
+      </div>
     </div>);
   }
 }
 
-export default Cronometer;
+export default Stopwatch;

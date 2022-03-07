@@ -1,5 +1,5 @@
 import './App.css';
-import Cronometer from './components/Cronometer';
+import Stopwatch from './components/Stopwatch';
 
 function App() {
   return (
@@ -7,7 +7,7 @@ function App() {
       <header className="App-header">
         <h1>Cronômetro</h1>
       </header>
-      <Cronometer />
+      <Stopwatch />
     </div>
   );
 }

@@ -1,9 +1,11 @@
 *{
   box-sizing: border-box;
+  padding: 0;
+  margin: 0;
 }
 
 body{
-  background-color: #282c34;
+  background-color:#F5F5FF;
 }
 
 .input {
@@ -14,7 +16,6 @@ body{
 .input input {
   margin: 3px;
   font-size: 1em;
-  padding: 0;
 }
 
 .time-input {
@@ -22,7 +23,7 @@ body{
 }
 
 .App {
-  color: white;
+  color: black;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -30,9 +31,69 @@ body{
   justify-content: center;
 }
 
+.digital-clock {
+  border: 18px solid #647a87ff;
+  border-radius: 20px;
+}
+
+.digital-clock-in {
+  border: 10px solid #d2d3d5ff;
+  border-radius: 5px;
+  display: flex;
+  padding: 5px 20px;
+  margin: -2px;
+}
+
 .clock-number {
-  font-size: 4em;
+  font-size: 40px;
+  margin: 11px 0;
+  display: block;
   font-family: monospace;
+}
+
+.clock {
+  width: 400px;
+  height: 400px;
+  background-image: url('./stopwatch-no-pointer.svg');
+  margin: 40px;
+}
+
+.clock-center {
+  width: 16px;
+  height: 16px;
+  background-color: red;
+  position: absolute;
+  border-radius: 50%;
+  transform: translateX(192px) translateY(234px);
+}
+
+.stopwatch-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.input {
+  margin: 10px;
+}
+
+.stopwatch-buttons button {
+  cursor: pointer;
+  font-size: 20px;
+  background-color: #4545b435;
+  padding: 10px 20px;
+  margin: 10px;
+  border: none;
+  border-radius: 12px;
+}
+
+.stopwatch-buttons button:hover:disabled {
+  color: grey;
+  background-color: #9898c2;
+}
+
+.stopwatch-buttons button:hover {
+  background-color: #6A6AC1;
+  color: white;
 }
 
 .cronometer {

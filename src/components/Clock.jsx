@@ -11,21 +11,42 @@ class Clock extends React.Component {
     seconds = seconds - min*60;
     const sec = Math.floor(seconds);
     
-    return (
-      <div className="clock">
-        {
-          hour > 0 ? 
-          (
-          <>
-            <span className="clock-number">{String(hour).padStart(2, '0')}</span>
-            <span className="clock-number">:</span>
-          </>
-          ) : <></>
-        }
-        <span className="clock-number">{String(min).padStart(2, '0')}</span>
-        <span className="clock-number">:</span>
-        <span className="clock-number">{String(sec).padStart(2, '0')}</span>
-      </div>);
+  const secPointerStyle = {
+    width: '4px',
+    height: '100px',
+    transformOrigin: '200px 243.6px',
+    backgroundColor: 'red',
+    position: 'absolute',
+    transform: `rotate(${sec/60*360}deg) translateX(198.3px) translateY(145px)`,
+  }
+
+  const minPointerStyle = {
+    width: '8px',
+    height: '80px',
+    transformOrigin: '200px 243.6px',
+    backgroundColor: 'red',
+    position: 'absolute',
+    //transform: `rotate(${min/60*360}deg) translateX(196px) translateY(145px)`,
+    transform: `rotate(${min/60*360}deg) translateX(196px) translateY(168.5px)`,
+  }
+
+  const hourPointerStyle = {
+    width: '8px',
+    height: '60px',
+    transformOrigin: '200px 243.6px',
+    backgroundColor: 'red',
+    position: 'absolute',
+    //transform: `rotate(${min/60*360}deg) translateX(196px) translateY(145px)`,
+    transform: `rotate(${hour/12*360}deg) translateX(196px) translateY(183.5px)`,
+  }
+
+  return (
+    <div className="clock">
+     <div style={hourPointerStyle} />
+      <div style={minPointerStyle} />
+      <div style={secPointerStyle} />
+      <div className="clock-center"/>
+    </div>);
   }
 }
 
