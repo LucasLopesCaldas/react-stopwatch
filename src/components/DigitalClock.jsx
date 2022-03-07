@@ -15,6 +15,7 @@ class DigitalClock extends React.Component {
       <div className="digital-clock">
         <div className="digital-clock-in">
           {
+            // always true
             hour > -1 ? 
             (
             <>
