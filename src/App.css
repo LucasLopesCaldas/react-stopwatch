@@ -2,7 +2,23 @@
   font-family:'clock';
   src: url('./digital-7\ \(mono\).ttf');
  }
+
+ @media (prefers-reduced-motion: no-preference) {
+  .timer-finished {
+    animation: timer-finished-anim infinite alternate 0.5s ease;
+  }
+}
  
+
+@keyframes timer-finished-anim {
+  from {
+    color: #3e4347ff;
+  }
+  to {
+    color: red;
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
@@ -41,6 +57,7 @@ body {
 
 .digital-clock {
   border: 18px solid #647a87ff;
+  font-size: 50px;
   border-radius: 20px;
 }
 
@@ -57,8 +74,6 @@ body {
 }
 
 .clock-number {
-  font-size: 50px;
-  color: #3e4347ff;
   display: block;
   font-family: clock, monospace;
   margin-top: -15px;

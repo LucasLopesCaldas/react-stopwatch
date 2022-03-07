@@ -3,7 +3,7 @@ import React from "react";
 class DigitalClock extends React.Component {
   render(){
 
-    let { seconds } = this.props;
+    let { seconds, finished } = this.props;
 
     const hour = Math.floor(seconds / (60 * 60));
     seconds = seconds - hour*(60*60)
@@ -12,7 +12,7 @@ class DigitalClock extends React.Component {
     const sec = Math.floor(seconds);
     
     return (
-      <div className="digital-clock">
+      <div className={`digital-clock ${finished ? "timer-finished" : ""}`}>
         <div className="digital-clock-in">
           {
             // always true

@@ -14,6 +14,7 @@ class Stopwatch extends React.Component {
       inputMin: 0,
       inputSec: 0,
       running: false,
+      finished: false,
     }
     this.startTimer = this.startTimer.bind(this);
     this.handleTimeInputChange = this.handleTimeInputChange.bind(this);
@@ -25,7 +26,8 @@ class Stopwatch extends React.Component {
         const { inputHour, inputMin, inputSec } = last;
         return {
           seconds: inputHour *60 *60 + inputMin *60 + inputSec,
-          running: false
+          running: false,
+          finished: false,
         };
     });
   }
@@ -44,7 +46,7 @@ class Stopwatch extends React.Component {
 
       if(this.state.seconds <= 0){
         clearInterval(id);
-        this.setState({running: false});
+        this.setState({running: false, finished: true});
         return;
       }
     }, 1000)
@@ -61,6 +63,7 @@ class Stopwatch extends React.Component {
     value = parseInt(value);
     this.setState({
       [target.name]: isNaN(value) || value < 0 ? "" : value,
+      finished: false
     }, () => {
       if(value !== "" && !this.state.running)
         this.setState((last) => {
@@ -74,11 +77,11 @@ class Stopwatch extends React.Component {
 
   render(){
 
-    let { inputHour, inputMin, inputSec, seconds, running, timerId } = this.state;
+    let { inputHour, inputMin, inputSec, seconds, running, timerId, finished } = this.state;
     
     return (<div className="cronometer">
       <Input inputHour={inputHour} inputMin={inputMin} inputSec={inputSec} handleTimeInputChange={this.handleTimeInputChange}/>
-      <DigitalClock seconds={seconds}/>
+      <DigitalClock finished={finished} seconds={seconds}/>
       <Clock seconds={seconds}/>
       <div className="stopwatch-buttons">
         <button type="button" onClick={this.startTimer}>{!running ? 'START' : 'RESTART'}</button>
