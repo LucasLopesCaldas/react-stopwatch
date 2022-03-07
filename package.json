@@ -1,7 +1,7 @@
 {
   "name": "cronometro",
   "version": "0.1.0",
-  "homepage": "https://lucaslopescaldas.github.io/stopwatch",
+  "homepage": "https://lucaslopescaldas.github.io/react-stopwatch",
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
