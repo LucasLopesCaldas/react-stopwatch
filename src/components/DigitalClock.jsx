@@ -15,7 +15,7 @@ class DigitalClock extends React.Component {
       <div className="digital-clock">
         <div className="digital-clock-in">
           {
-            hour > 0 ? 
+            hour > -1 ? 
             (
             <>
               <span className="clock-number">{String(hour).padStart(2, '0')}</span>

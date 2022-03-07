@@ -5,9 +5,12 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <h1>Cronômetro</h1>
+        <br />
+        <h1>Trybe Stopwatch</h1>
       </header>
       <Stopwatch />
+      <br />
+      <a href='https://github.com/LucasLopesCaldas' rel='noreferrer' target={'_blank'}>@LucasLopes</a>
     </div>
   );
 }

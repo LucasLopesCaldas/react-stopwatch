@@ -1,11 +1,16 @@
-*{
+@font-face{
+  font-family:'clock';
+  src: url('./digital-7\ \(mono\).ttf');
+ }
+ 
+* {
   box-sizing: border-box;
   padding: 0;
   margin: 0;
 }
 
-body{
-  background-color:#F5F5FF;
+body {
+  background-color: #F5F5FF;
 }
 
 .input {
@@ -13,17 +18,20 @@ body{
   justify-content: space-between;
 }
 
-.input input {
-  margin: 3px;
-  font-size: 1em;
-}
-
 .time-input {
-  width: 4em;
+  width: 80px;
+  height: 35px;
+  margin: 3px;
+  display: flex;
+  font-size: 30px;
+  text-align: center;
+  color: #3e4347ff;
+  font-family: monospace;
 }
 
 .App {
-  color: black;
+  color: #3e4347ff;
+
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -37,18 +45,23 @@ body{
 }
 
 .digital-clock-in {
+  width: 250px;
+  height: 70px;
   border: 10px solid #d2d3d5ff;
   border-radius: 5px;
   display: flex;
-  padding: 5px 20px;
+  justify-content: center;
+  align-items: center;
+  padding: 0 20px;
   margin: -2px;
 }
 
 .clock-number {
-  font-size: 40px;
-  margin: 11px 0;
+  font-size: 50px;
+  color: #3e4347ff;
   display: block;
-  font-family: monospace;
+  font-family: clock, monospace;
+  margin-top: -15px;
 }
 
 .clock {
@@ -69,11 +82,12 @@ body{
 
 .stopwatch-buttons {
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
+  width: 400px;
 }
 
 .input {
-  margin: 10px;
+  margin: 20px;
 }
 
 .stopwatch-buttons button {
