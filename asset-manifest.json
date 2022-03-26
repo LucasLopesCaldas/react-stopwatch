@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/react-stopwatch/static/css/main.a3ac5e5c.css",
-    "main.js": "/react-stopwatch/static/js/main.7df9a401.js",
+    "main.css": "/react-stopwatch/static/css/main.e021c6f2.css",
+    "main.js": "/react-stopwatch/static/js/main.cc3b74cf.js",
     "static/js/787.50378447.chunk.js": "/react-stopwatch/static/js/787.50378447.chunk.js",
     "static/media/digital-7 (mono).ttf": "/react-stopwatch/static/media/digital-7 (mono).ae951a188b593952b384.ttf",
     "static/media/stopwatch-no-pointer.svg": "/react-stopwatch/static/media/stopwatch-no-pointer.7055d2ebb2a0a01992b3.svg",
     "index.html": "/react-stopwatch/index.html",
-    "main.a3ac5e5c.css.map": "/react-stopwatch/static/css/main.a3ac5e5c.css.map",
-    "main.7df9a401.js.map": "/react-stopwatch/static/js/main.7df9a401.js.map",
+    "main.e021c6f2.css.map": "/react-stopwatch/static/css/main.e021c6f2.css.map",
+    "main.cc3b74cf.js.map": "/react-stopwatch/static/js/main.cc3b74cf.js.map",
     "787.50378447.chunk.js.map": "/react-stopwatch/static/js/787.50378447.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.a3ac5e5c.css",
-    "static/js/main.7df9a401.js"
+    "static/css/main.e021c6f2.css",
+    "static/js/main.cc3b74cf.js"
   ]
 }
