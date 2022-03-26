@@ -10,7 +10,6 @@ class Stopwatch extends React.Component {
   constructor(){
     super();
     this.startTimer = this.startTimer.bind(this);
-    this.handleTimeInputChange = this.handleTimeInputChange.bind(this);
     this.reset = this.reset.bind(this);
   }
 
@@ -55,33 +54,28 @@ class Stopwatch extends React.Component {
     clearInterval(this.props.timerId);
   }
 
-  handleTimeInputChange({target}){
-    const { updateState } = this.props;
-
-    let { value } = target;
-    value = parseInt(value);
-
-    const newState = {
-      ...this.props,
-      [target.name]: isNaN(value) || value < 0 ? "" : value,
-      finished: false
-    }
-
-    if(!this.props.running){
-      newState.seconds = newState.inputHour *60 *60 + newState.inputMin *60 + newState.inputSec;
-    }
-
-    updateState(newState)
-  }
-
   render(){
 
-    let { inputHour, inputMin, inputSec, seconds, running, timerId, finished } = this.props;
+    let { seconds, running, timerId, finished, showDigitalClock, showClock, updateState } = this.props;
     
-    return (<div className="cronometer">
-      <Input inputHour={inputHour} inputMin={inputMin} inputSec={inputSec} handleTimeInputChange={this.handleTimeInputChange}/>
-      <DigitalClock finished={finished} seconds={seconds}/>
-      <Clock seconds={seconds}/>
+    return (<div className="stopwatch">
+      <div className="show-clocks-constiner">
+        <div>
+          <label htmlFor="digital-checkbox">
+            Show digital
+          </label>
+          <label htmlFor="analog-checkbox">
+            Show analog
+          </label>
+        </div>
+        <div className="show-clocks-checkbox-conatiner">
+          <input id="digital-checkbox" checked={showDigitalClock} disabled={!showClock} type='checkbox' onChange={({target: { checked }}) => { updateState({showDigitalClock: checked}) }}/>
+          <input id="analog-checkbox" checked={showClock} disabled={!showDigitalClock}type='checkbox' onChange={({target: { checked }}) => { updateState({showClock: checked}) }}/>
+        </div>
+      </div>
+      <Input />
+      {showDigitalClock ? <DigitalClock finished={finished} seconds={seconds}/> : ''}
+      {showClock ? <Clock seconds={seconds}/> : ''}
       <div className="stopwatch-buttons">
         <button type="button" onClick={this.startTimer}>{!running ? 'START' : 'RESTART'}</button>
         <button type="button" disabled={!running} onClick={() => {clearInterval(timerId); this.reset()}}>STOP</button>

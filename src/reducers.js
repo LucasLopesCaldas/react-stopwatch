@@ -8,6 +8,8 @@ const INITIAL_STATE = {
   inputSec: 0,
   running: false,
   finished: false,
+  showDigitalClock: true,
+  showClock: true,
 }
 
 export const reducer = (state = INITIAL_STATE, action) => {
