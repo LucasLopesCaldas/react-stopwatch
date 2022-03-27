@@ -20,6 +20,8 @@ class Clock extends React.Component {
     transform: `rotate(${sec/60*360}deg) translateX(198.3px) translateY(145px)`,
   }
 
+  console.log((min+(sec/60))/12*360);
+
   const minPointerStyle = {
     width: '8px',
     height: '80px',
@@ -27,7 +29,7 @@ class Clock extends React.Component {
     backgroundColor: 'red',
     position: 'absolute',
     //transform: `rotate(${min/60*360}deg) translateX(196px) translateY(145px)`,
-    transform: `rotate(${min/60*360}deg) translateX(196px) translateY(168.5px)`,
+    transform: `rotate(${(min+(sec/60))/60*360}deg) translateX(196px) translateY(168.5px)`,
   }
 
   const hourPointerStyle = {
@@ -37,7 +39,7 @@ class Clock extends React.Component {
     backgroundColor: 'red',
     position: 'absolute',
     //transform: `rotate(${min/60*360}deg) translateX(196px) translateY(145px)`,
-    transform: `rotate(${hour/12*360}deg) translateX(196px) translateY(183.5px)`,
+    transform: `rotate(${(hour+(min/60))/12*360}deg) translateX(196px) translateY(183.5px)`,
   }
 
   return (

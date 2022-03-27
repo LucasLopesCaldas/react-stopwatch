@@ -5,6 +5,8 @@ import Clock from "./Clock";
 import DigitalClock from "./DigitalClock";
 import Input from "./Input";
 
+const INTERVAL = 1000;
+
 class Stopwatch extends React.Component {
 
   constructor(){
@@ -33,7 +35,6 @@ class Stopwatch extends React.Component {
 
     const id = setInterval(() => {
       const {seconds} = this.props;
-      console.log(seconds);
       const secs = seconds-1;
       
       updateState({
@@ -45,7 +46,7 @@ class Stopwatch extends React.Component {
         updateState({ seconds: 0, running: false, finished: true});
         return;
       }
-    }, 1000)
+    }, INTERVAL)
     
     updateState({timerId: id, running: true});
   }
@@ -59,23 +60,29 @@ class Stopwatch extends React.Component {
     let { seconds, running, timerId, finished, showDigitalClock, showClock, updateState } = this.props;
     
     return (<div className="stopwatch">
-      <div className="show-clocks-constiner">
-        <div>
-          <label htmlFor="digital-checkbox">
-            Show digital
-          </label>
-          <label htmlFor="analog-checkbox">
-            Show analog
-          </label>
-        </div>
-        <div className="show-clocks-checkbox-conatiner">
-          <input id="digital-checkbox" checked={showDigitalClock} disabled={!showClock} type='checkbox' onChange={({target: { checked }}) => { updateState({showDigitalClock: checked}) }}/>
-          <input id="analog-checkbox" checked={showClock} disabled={!showDigitalClock}type='checkbox' onChange={({target: { checked }}) => { updateState({showClock: checked}) }}/>
-        </div>
-      </div>
+      <header className="App-header">
+        <br />
+        <h1>Trybe Stopwatch</h1>
+      </header>
       <Input />
       {showDigitalClock ? <DigitalClock finished={finished} seconds={seconds}/> : ''}
       {showClock ? <Clock seconds={seconds}/> : ''}
+      <div className="show-clocks-constiner">
+        <div style={{display: "inline"}}>
+          <label htmlFor="digital-checkbox">
+            Show digital
+          </label>
+          {' '}
+          <input id="digital-checkbox" checked={showDigitalClock} disabled={!showClock} type='checkbox' onChange={({target: { checked }}) => { updateState({showDigitalClock: checked}) }}/>
+        </div>
+        <div style={{display: "inline"}}>
+          <label htmlFor="analog-checkbox">
+            Show analog
+          </label>
+          {' '}
+          <input id="analog-checkbox" checked={showClock} disabled={!showDigitalClock}type='checkbox' onChange={({target: { checked }}) => { updateState({showClock: checked}) }}/>
+        </div>
+      </div>
       <div className="stopwatch-buttons">
         <button type="button" onClick={this.startTimer}>{!running ? 'START' : 'RESTART'}</button>
         <button type="button" disabled={!running} onClick={() => {clearInterval(timerId); this.reset()}}>STOP</button>

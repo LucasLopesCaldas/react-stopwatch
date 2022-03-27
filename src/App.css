@@ -60,30 +60,19 @@ body {
 .show-clocks-constiner {
   display: flex;
   font-weight:700;
-  position: absolute;
-  top: 20px;
-  right: 30px;
-  align-self: flex-end;
+  width: 400px;
+  justify-content: space-evenly;
 }
 
-.show-clocks-checkbox-conatiner{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  padding: 3px 0;
-}
-
-.show-clocks-constiner label {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-right: 10px;
+.show-clocks-constiner div {
+  width: 150px;
 }
 
 .digital-clock {
   border: 18px solid #647a87ff;
   font-size: 50px;
   border-radius: 20px;
+  margin-bottom: 10px;
 }
 
 .digital-clock-in {
@@ -132,10 +121,11 @@ body {
 
 .stopwatch-buttons button {
   cursor: pointer;
+  width: 150px;
   font-size: 20px;
   background-color: #4545b435;
   padding: 10px 20px;
-  margin: 10px;
+  margin: 10px 0;
   border: none;
   border-radius: 12px;
 }

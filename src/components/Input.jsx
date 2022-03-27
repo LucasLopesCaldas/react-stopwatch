@@ -40,7 +40,6 @@ class Input extends React.Component {
           type={'number'}
           value={inputHour}
           min={0}
-          max={59}
           onChange={this.handleTimeInputChange}/>
         <input 
           name="inputMin" 
